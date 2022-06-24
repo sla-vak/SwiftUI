@@ -10,10 +10,10 @@
 		F91913E22860F13700E0609B /* FoodPinApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91913E12860F13700E0609B /* FoodPinApp.swift */; };
 		F91913E42860F13700E0609B /* RestaurantListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91913E32860F13700E0609B /* RestaurantListView.swift */; };
 		F91913E62860F13900E0609B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F91913E52860F13900E0609B /* Assets.xcassets */; };
-		F91913E92860F13900E0609B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F91913E82860F13900E0609B /* Preview Assets.xcassets */; };
 		F91913F32860F13900E0609B /* FoodPinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91913F22860F13900E0609B /* FoodPinTests.swift */; };
 		F91913FD2860F13900E0609B /* FoodPinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91913FC2860F13900E0609B /* FoodPinUITests.swift */; };
 		F91913FF2860F13900E0609B /* FoodPinUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91913FE2860F13900E0609B /* FoodPinUITestsLaunchTests.swift */; };
+		F9B2D2E8286632C6005085BD /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2D2E7286632C6005085BD /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,12 +38,12 @@
 		F91913E12860F13700E0609B /* FoodPinApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPinApp.swift; sourceTree = "<group>"; };
 		F91913E32860F13700E0609B /* RestaurantListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListView.swift; sourceTree = "<group>"; };
 		F91913E52860F13900E0609B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F91913E82860F13900E0609B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		F91913EE2860F13900E0609B /* FoodPinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodPinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91913F22860F13900E0609B /* FoodPinTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPinTests.swift; sourceTree = "<group>"; };
 		F91913F82860F13900E0609B /* FoodPinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodPinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91913FC2860F13900E0609B /* FoodPinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPinUITests.swift; sourceTree = "<group>"; };
 		F91913FE2860F13900E0609B /* FoodPinUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPinUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F9B2D2E7286632C6005085BD /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,20 +94,12 @@
 		F91913E02860F13700E0609B /* FoodPin */ = {
 			isa = PBXGroup;
 			children = (
+				F9B2D2EA28663812005085BD /* Model */,
+				F9B2D2E9286637D9005085BD /* View */,
 				F91913E12860F13700E0609B /* FoodPinApp.swift */,
-				F91913E32860F13700E0609B /* RestaurantListView.swift */,
 				F91913E52860F13900E0609B /* Assets.xcassets */,
-				F91913E72860F13900E0609B /* Preview Content */,
 			);
 			path = FoodPin;
-			sourceTree = "<group>";
-		};
-		F91913E72860F13900E0609B /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				F91913E82860F13900E0609B /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		F91913F12860F13900E0609B /* FoodPinTests */ = {
@@ -125,6 +117,22 @@
 				F91913FE2860F13900E0609B /* FoodPinUITestsLaunchTests.swift */,
 			);
 			path = FoodPinUITests;
+			sourceTree = "<group>";
+		};
+		F9B2D2E9286637D9005085BD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F91913E32860F13700E0609B /* RestaurantListView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F9B2D2EA28663812005085BD /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F9B2D2E7286632C6005085BD /* Restaurant.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,7 +239,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F91913E92860F13900E0609B /* Preview Assets.xcassets in Resources */,
 				F91913E62860F13900E0609B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -259,6 +266,7 @@
 			files = (
 				F91913E42860F13700E0609B /* RestaurantListView.swift in Sources */,
 				F91913E22860F13700E0609B /* FoodPinApp.swift in Sources */,
+				F9B2D2E8286632C6005085BD /* Restaurant.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
