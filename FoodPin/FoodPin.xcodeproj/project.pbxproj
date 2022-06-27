@@ -16,6 +16,8 @@
 		F948CAD52867A1A600651F52 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948CAD42867A1A600651F52 /* ActivityView.swift */; };
 		F9A95B20286A40AB00768375 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A95B1F286A40AB00768375 /* RestaurantDetailView.swift */; };
 		F9B2D2E8286632C6005085BD /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2D2E7286632C6005085BD /* Restaurant.swift */; };
+		F9EA2597286A5B3600EA5379 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9EA2595286A5B3600EA5379 /* Nunito-Regular.ttf */; };
+		F9EA2598286A5B3600EA5379 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9EA2596286A5B3600EA5379 /* Nunito-Bold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,9 @@
 		F948CAD42867A1A600651F52 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		F9A95B1F286A40AB00768375 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
 		F9B2D2E7286632C6005085BD /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		F9EA2595286A5B3600EA5379 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
+		F9EA2596286A5B3600EA5379 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
+		F9EA2599286A5BF000EA5379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +103,8 @@
 		F91913E02860F13700E0609B /* FoodPin */ = {
 			isa = PBXGroup;
 			children = (
+				F9EA2599286A5BF000EA5379 /* Info.plist */,
+				F9A95B21286A595C00768375 /* Resources */,
 				F9B2D2EA28663812005085BD /* Model */,
 				F9B2D2E9286637D9005085BD /* View */,
 				F91913E12860F13700E0609B /* FoodPinApp.swift */,
@@ -123,12 +130,29 @@
 			path = FoodPinUITests;
 			sourceTree = "<group>";
 		};
+		F9A95B21286A595C00768375 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F9A95B22286A597C00768375 /* Fonts */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		F9A95B22286A597C00768375 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				F9EA2596286A5B3600EA5379 /* Nunito-Bold.ttf */,
+				F9EA2595286A5B3600EA5379 /* Nunito-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		F9B2D2E9286637D9005085BD /* View */ = {
 			isa = PBXGroup;
 			children = (
 				F91913E32860F13700E0609B /* RestaurantListView.swift */,
-				F948CAD42867A1A600651F52 /* ActivityView.swift */,
 				F9A95B1F286A40AB00768375 /* RestaurantDetailView.swift */,
+				F948CAD42867A1A600651F52 /* ActivityView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -245,6 +269,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9EA2597286A5B3600EA5379 /* Nunito-Regular.ttf in Resources */,
+				F9EA2598286A5B3600EA5379 /* Nunito-Bold.ttf in Resources */,
 				F91913E62860F13900E0609B /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,6 +462,7 @@
 				DEVELOPMENT_TEAM = Z4H2Q2CW7B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FoodPin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -465,6 +492,7 @@
 				DEVELOPMENT_TEAM = Z4H2Q2CW7B;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = FoodPin/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
