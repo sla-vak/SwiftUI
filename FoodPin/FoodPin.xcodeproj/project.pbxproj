@@ -13,6 +13,8 @@
 		F91913F32860F13900E0609B /* FoodPinTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91913F22860F13900E0609B /* FoodPinTests.swift */; };
 		F91913FD2860F13900E0609B /* FoodPinUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91913FC2860F13900E0609B /* FoodPinUITests.swift */; };
 		F91913FF2860F13900E0609B /* FoodPinUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F91913FE2860F13900E0609B /* FoodPinUITestsLaunchTests.swift */; };
+		F948CAD52867A1A600651F52 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F948CAD42867A1A600651F52 /* ActivityView.swift */; };
+		F9A95B20286A40AB00768375 /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9A95B1F286A40AB00768375 /* RestaurantDetailView.swift */; };
 		F9B2D2E8286632C6005085BD /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9B2D2E7286632C6005085BD /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +45,8 @@
 		F91913F82860F13900E0609B /* FoodPinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodPinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F91913FC2860F13900E0609B /* FoodPinUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPinUITests.swift; sourceTree = "<group>"; };
 		F91913FE2860F13900E0609B /* FoodPinUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPinUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F948CAD42867A1A600651F52 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		F9A95B1F286A40AB00768375 /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
 		F9B2D2E7286632C6005085BD /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +127,8 @@
 			isa = PBXGroup;
 			children = (
 				F91913E32860F13700E0609B /* RestaurantListView.swift */,
+				F948CAD42867A1A600651F52 /* ActivityView.swift */,
+				F9A95B1F286A40AB00768375 /* RestaurantDetailView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -265,6 +271,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F91913E42860F13700E0609B /* RestaurantListView.swift in Sources */,
+				F9A95B20286A40AB00768375 /* RestaurantDetailView.swift in Sources */,
+				F948CAD52867A1A600651F52 /* ActivityView.swift in Sources */,
 				F91913E22860F13700E0609B /* FoodPinApp.swift in Sources */,
 				F9B2D2E8286632C6005085BD /* Restaurant.swift in Sources */,
 			);

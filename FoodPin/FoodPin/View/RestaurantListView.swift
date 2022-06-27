@@ -32,17 +32,49 @@ struct RestaurantListView: View {
         Restaurant(name: "Royal Oak", type: "British", location: "London", image: "royaloak", isFavorite: false),
         Restaurant(name: "CASK Pub and Kitchen", type: "Thai", location: "London", image: "cask", isFavorite: false)
     ]
-
-
+    
+    
     var body: some View {
         
-        List {
-            ForEach(restaurants.indices, id: \.self) { index in
-                BasicTextImageRow(restaurant: $restaurants[index])
+        NavigationView {
+            List {
+                ForEach(restaurants.indices, id: \.self) { index in
+                    ZStack(alignment: .leading) {
+                        NavigationLink(destination: RestaurantDetailView(restaurant: restaurants[index])) {
+                            EmptyView()
+                        }
+                        .opacity(0)
+                        BasicTextImageRow(restaurant: $restaurants[index])
+                    }
+                    .swipeActions(edge: .leading, allowsFullSwipe: false, content: {
+                        
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "heart")
+                        }
+                        .tint(.green)
+                        
+                        Button {
+                            
+                        } label: {
+                            Image(systemName: "square.and.arrow.up")
+                        }
+                        .tint(.orange)
+                        
+                    })
+                }
+                .onDelete(perform: { indexSet in
+                    restaurants.remove(atOffsets: indexSet)
+                })
+                
+                .listRowSeparator(.hidden)
             }
-            .listRowSeparator(.hidden)
+            .listStyle(.plain)
+            .navigationTitle("FoodPin")
+            .navigationBarTitleDisplayMode(.automatic)
         }
-        .listStyle(.plain)
+        .accentColor(.white)
     }
 }
 
@@ -77,22 +109,33 @@ struct BasicTextImageRow: View {
                     .foregroundColor(.red)
             }
         }
-        .onTapGesture {
-            showOptinons.toggle()
-        }
-        .actionSheet(isPresented: $showOptinons) {
-            ActionSheet(title: Text("What do you want to do?"),
-                        message: nil,
-                        buttons: [
-                            .default(Text("Reserve a table")) {
-                                self.showError.toggle()
-                            },
-                            .default(Text(restaurant.isFavorite ? "Remove from favorites" : "Mark as favorite")) {
-                                self.restaurant.isFavorite.toggle()
-                            },
-                            .cancel()
-                        ])
+        .contextMenu {
             
+            Button(action: {
+                self.showError.toggle()
+            }) {
+                HStack {
+                    Text("Reserve a table")
+                    Image(systemName: "phone")
+                }
+            }
+            
+            Button(action: {
+                self.restaurant.isFavorite.toggle()
+            }) {
+                HStack {
+                    Text(restaurant.isFavorite ? "Remove from favorites" : "Mark as favorite")
+                    Image(systemName: "heart")
+                }
+            }
+            Button(action: {
+                self.showOptinons.toggle()
+            }) {
+                HStack {
+                    Text("Share")
+                    Image(systemName: "square.and.arrow.up")
+                }
+            }
         }
         .alert(isPresented: $showError) {
             Alert(title: Text("Not available"),
@@ -100,8 +143,19 @@ struct BasicTextImageRow: View {
                   primaryButton: .default(Text("OK")),
                   secondaryButton: .cancel())
         }
+        .sheet(isPresented: $showOptinons) {
+            
+            let defaultText = "Just checking in at \(restaurant.name)"
+            
+            if let imageToShare = UIImage(named: restaurant.image) {
+                ActivityView(activityItems: [defaultText, imageToShare])
+            } else {
+                ActivityView(activityItems: [defaultText])
+            }
+        }
     }
 }
+
 
 // -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
 
@@ -129,7 +183,7 @@ struct FullImageRow: View {
                 VStack(alignment: .leading) {
                     Text(name)
                         .font(.system(.title2, design: .rounded))
-                        
+                    
                     Text(type)
                         .font(.system(.body, design: .rounded))
                     
@@ -145,7 +199,7 @@ struct FullImageRow: View {
             }
             .padding(.horizontal)
             .padding(.bottom)
-
+            
             
         }
         .onTapGesture {
@@ -182,11 +236,11 @@ struct RestaurantListView_Previews: PreviewProvider {
         
         RestaurantListView()
             .preferredColorScheme(.dark)
-        
-        BasicTextImageRow(restaurant: .constant(Restaurant(name: "Cafe Deadend", type: "Cafe", location: "Hong Kong", image: "cafedeadend", isFavorite: true)))
-                .previewLayout(.sizeThatFits)
-
-        FullImageRow(imageName: "cafedeadend", name: "Cafe Deadend", type: "Cafe", location: "Hong Kong", isFavorite: .constant(true))
-                    .previewLayout(.sizeThatFits)
+        //
+        //        BasicTextImageRow(restaurant: .constant(Restaurant(name: "Cafe Deadend", type: "Cafe", location: "Hong Kong", image: "cafedeadend", isFavorite: true)))
+        //                .previewLayout(.sizeThatFits)
+        //
+        //        FullImageRow(imageName: "cafedeadend", name: "Cafe Deadend", type: "Cafe", location: "Hong Kong", isFavorite: .constant(true))
+        //                    .previewLayout(.sizeThatFits)
     }
 }
