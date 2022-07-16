@@ -9,6 +9,9 @@ import SwiftUI
 
 struct RestaurantDetailView: View {
     @Environment(\.dismiss) var dismiss
+    
+    @State private var showReview = false
+    
     var restaurant: Restaurant
     
     var body: some View {
@@ -75,7 +78,7 @@ struct RestaurantDetailView: View {
                 NavigationLink(
                     destination:
                         MapView(location: restaurant.location)
-                            .edgesIgnoringSafeArea(.all)
+                        .edgesIgnoringSafeArea(.all)
                 ) {
                     MapView(location: restaurant.location)
                         .frame(minWidth: 0, maxWidth: .infinity)
@@ -83,27 +86,51 @@ struct RestaurantDetailView: View {
                         .cornerRadius(20)
                         .padding()
                 }
-            }
-        }
-        .navigationBarBackButtonHidden(true)
-        .toolbar {
-            ToolbarItem(placement: .navigationBarLeading) {
                 Button(action: {
-                    dismiss()
+                    self.showReview.toggle()
                 }) {
-                    Text("\(Image(systemName: "chevron.left"))")
+                    Text("Rate it")
+                        .font(.system(.headline, design: .rounded))
+                        .frame(minWidth: 0, maxWidth: .infinity)
+                }
+                .tint(Color("NavigationBarTitle"))
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.roundedRectangle(radius: 25))
+                .controlSize(.large)
+                .padding(.horizontal)
+                .padding(.bottom, 20)
+                
+            }
+            .navigationBarBackButtonHidden(true)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button(action: {
+                        dismiss()
+                    }) {
+                        Text("\(Image(systemName: "chevron.left"))")
+                    }
+                    .opacity(showReview ? 0 : 1)
                 }
             }
         }
         .ignoresSafeArea()
+        .overlay(
+            self.showReview ?
+            ZStack {
+                ReviewView(isDisplayed: $showReview ,restaurant: restaurant)
+                    .navigationBarHidden(true)
+            }
+            
+            : nil
+        )
     }
-}
-
-struct RestaurantDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationView {
-            RestaurantDetailView(restaurant: Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "G/F, 72 Po Hing Fong, Sheung Wan, Hong Kong", phone: "232-923423", description: "Searching for great breakfast eateries and coffee? This place is for you. We open at 6:30 every morning, and close at 9 PM. We offer espresso and espresso based drink, such as capuccino, cafe latte, piccolo and many more. Come over and enjoy a great meal.", image: "cafedeadend", isFavorite: false))
+    
+    struct RestaurantDetailView_Previews: PreviewProvider {
+        static var previews: some View {
+            NavigationView {
+                RestaurantDetailView(restaurant: Restaurant(name: "Cafe Deadend", type: "Coffee & Tea Shop", location: "G/F, 72 Po Hing Fong, Sheung Wan, Hong Kong", phone: "232-923423", description: "Searching for great breakfast eateries and coffee? This place is for you. We open at 6:30 every morning, and close at 9 PM. We offer espresso and espresso based drink, such as capuccino, cafe latte, piccolo and many more. Come over and enjoy a great meal.", image: "cafedeadend", isFavorite: false))
+            }
+            .accentColor(.white)
         }
-        .accentColor(.white)
     }
 }
