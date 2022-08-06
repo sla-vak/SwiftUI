@@ -9,15 +9,17 @@ import SwiftUI
 
 struct RestaurantListView: View {
     
-    @FetchRequest(
-        entity: Restaurant.entity(),
-        sortDescriptors: [])
+    @FetchRequest(entity: Restaurant.entity(), sortDescriptors: [])
+    
     var restaurants: FetchedResults<Restaurant>
     
     @State private var showNewRestaurant = false
     @State private var searchText = ""
+    @State private var showWalkthrough = false
     
     @Environment(\.managedObjectContext) var context
+    
+    @AppStorage("hasViewedWalkthrough") var hasViewedWalkthrough: Bool = false
     
     private func deleteRecord(indexSet: IndexSet) {
         
@@ -75,12 +77,18 @@ struct RestaurantListView: View {
         .sheet(isPresented: $showNewRestaurant) {
             NewRestaurantView()
         }
+        .sheet(isPresented: $showWalkthrough) {
+            TutorialView()
+        }
         .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search restaurants...")
         
         .onChange(of: searchText) { searchText in
             let predicate = searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "name CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText, searchText)
 
             restaurants.nsPredicate = predicate
+        }
+        .onAppear() {
+            showWalkthrough = hasViewedWalkthrough ? false : true
         }
         
     }
