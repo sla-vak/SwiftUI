@@ -28,6 +28,9 @@
 		F9E8D9D9288EE9CD00E0A6C0 /* FoodPin.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F9E8D9D7288EE9CD00E0A6C0 /* FoodPin.xcdatamodeld */; };
 		F9EA2597286A5B3600EA5379 /* Nunito-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9EA2595286A5B3600EA5379 /* Nunito-Regular.ttf */; };
 		F9EA2598286A5B3600EA5379 /* Nunito-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F9EA2596286A5B3600EA5379 /* Nunito-Bold.ttf */; };
+		F9F98D9C28A0683400296B69 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F98D9B28A0683400296B69 /* AboutView.swift */; };
+		F9F98D9E28A06BDD00296B69 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F98D9D28A06BDD00296B69 /* WebView.swift */; };
+		F9F98DA028A06FFF00296B69 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9F98D9F28A06FFF00296B69 /* SafariView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +76,9 @@
 		F9EA2595286A5B3600EA5379 /* Nunito-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Regular.ttf"; sourceTree = "<group>"; };
 		F9EA2596286A5B3600EA5379 /* Nunito-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-Bold.ttf"; sourceTree = "<group>"; };
 		F9EA2599286A5BF000EA5379 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		F9F98D9B28A0683400296B69 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		F9F98D9D28A06BDD00296B69 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		F9F98D9F28A06FFF00296B69 /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -198,6 +204,9 @@
 				F987C14B28860E07008A78B4 /* NewRestaurantView.swift */,
 				F9C66EC4289E44800018A1D0 /* TutorialView.swift */,
 				F9C66EC6289E6D5D0018A1D0 /* MainView.swift */,
+				F9F98D9B28A0683400296B69 /* AboutView.swift */,
+				F9F98D9D28A06BDD00296B69 /* WebView.swift */,
+				F9F98D9F28A06FFF00296B69 /* SafariView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -350,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F9F98D9C28A0683400296B69 /* AboutView.swift in Sources */,
 				F9C66EC5289E44800018A1D0 /* TutorialView.swift in Sources */,
 				F9E4FF632899C48900448F55 /* RestaurantFormViewModel.swift in Sources */,
 				F9E8D9D6288EE7D900E0A6C0 /* Persistence.swift in Sources */,
@@ -359,7 +369,9 @@
 				F9A95B20286A40AB00768375 /* RestaurantDetailView.swift in Sources */,
 				F948CAD52867A1A600651F52 /* ActivityView.swift in Sources */,
 				F987C14C28860E07008A78B4 /* NewRestaurantView.swift in Sources */,
+				F9F98DA028A06FFF00296B69 /* SafariView.swift in Sources */,
 				F921634D286B9E95006542A8 /* UIColor+Ext.swift in Sources */,
+				F9F98D9E28A06BDD00296B69 /* WebView.swift in Sources */,
 				F90C73EA2888CEC500169A4E /* ImagePicker.swift in Sources */,
 				F91913E22860F13700E0609B /* FoodPinApp.swift in Sources */,
 				F9B2D2E8286632C6005085BD /* Restaurant.swift in Sources */,
