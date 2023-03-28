@@ -18,6 +18,7 @@ struct RestaurantListView: View {
     @State private var showWalkthrough = false
     
     @Environment(\.managedObjectContext) var context
+    @Environment(\.colorScheme) var colorScheme
     
     @AppStorage("hasViewedWalkthrough") var hasViewedWalkthrough: Bool = false
     
@@ -43,8 +44,12 @@ struct RestaurantListView: View {
         
         NavigationView {
             List {
-                if restaurants.count == 0 {
+                if restaurants.count == 0 && colorScheme == .light {
                     Image("emptydata")
+                        .resizable()
+                        .scaledToFit()
+                }else if restaurants.count == 0 && colorScheme == .dark {
+                    Image("emptydataDark")
                         .resizable()
                         .scaledToFit()
                 } else {
@@ -258,8 +263,8 @@ struct RestaurantListView_Previews: PreviewProvider {
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
             .preferredColorScheme(.dark)
 
-//        BasicTextImageRow(restaurant: (PersistenceController.testData?.first)!)
-//            .previewLayout(.sizeThatFits)
+        BasicTextImageRow(restaurant: (PersistenceController.testData?.first)!)
+            .previewLayout(.sizeThatFits)
 //
 //        FullImageRow(imageName: "cafedeadend", name: "Cafe Deadend", type: "Cafe", location: "Hong Kong", isFavorite: .constant(true))
 //            .previewLayout(.sizeThatFits)
