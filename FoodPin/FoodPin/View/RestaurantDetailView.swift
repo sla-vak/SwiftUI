@@ -25,7 +25,6 @@ struct RestaurantDetailView: View {
                     .frame(height: 445)
                     .overlay {
                         VStack {
-                           
                             HStack(alignment: .bottom) {
                                 VStack(alignment: .leading) {
                                     Text(restaurant.name)
@@ -96,7 +95,8 @@ struct RestaurantDetailView: View {
                 .buttonBorderShape(.roundedRectangle(radius: 25))
                 .controlSize(.large)
                 .padding(.horizontal)
-                .padding(.bottom, 20)
+                .padding(.bottom, 100)
+                Spacer()
                 
             }
             .navigationBarBackButtonHidden(true)

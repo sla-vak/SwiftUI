@@ -9,7 +9,6 @@ import SwiftUI
 
 struct NewRestaurantView: View {
     
-    @State var restaurantName = ""
     @State private var showPhotoOptions = false
     
     @Environment(\.dismiss) var dismiss

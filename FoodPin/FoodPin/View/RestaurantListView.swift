@@ -40,8 +40,6 @@ struct RestaurantListView: View {
     }
     var body: some View {
         
-        
-        
         NavigationView {
             List {
                 if restaurants.count == 0 && colorScheme == .light {
@@ -108,9 +106,10 @@ struct BasicTextImageRow: View {
     
     var body: some View {
         HStack(alignment: .top, spacing: 20) {
-            if let imageData = restaurant.image {
-                Image(uiImage: UIImage(data: imageData) ?? UIImage())
+            if let imageData: Data? = restaurant.image {
+                Image(uiImage: UIImage(data: imageData!) ?? UIImage())
                     .resizable()
+                    .scaledToFill()
                     .frame(width: 120, height: 118)
                     .cornerRadius(20)
             }
@@ -170,8 +169,8 @@ struct BasicTextImageRow: View {
             
             let defaultText = "Just checking in at \(restaurant.name)"
             
-            if let imageData = restaurant.image,
-               let imageToShare = UIImage(data: imageData) {
+            if let imageData: Data? = restaurant.image,
+               let imageToShare = UIImage(data: imageData!) {
                 ActivityView(activityItems: [defaultText, imageToShare])
             } else {
                 ActivityView(activityItems: [defaultText])
