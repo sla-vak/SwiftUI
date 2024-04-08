@@ -46,7 +46,7 @@ struct RestaurantListView: View {
                     Image("emptydata")
                         .resizable()
                         .scaledToFit()
-                }else if restaurants.count == 0 && colorScheme == .dark {
+                } else if restaurants.count == 0 && colorScheme == .dark {
                     Image("emptydataDark")
                         .resizable()
                         .scaledToFit()
