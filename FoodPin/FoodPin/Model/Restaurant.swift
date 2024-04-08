@@ -17,6 +17,20 @@ public class Restaurant: NSManagedObject {
     @NSManaged public var image: Data
     @NSManaged public var isFavorite: Bool
     @NSManaged public var ratingText: String?
+
+    convenience init(name: String, type: String, location: String, phone: String, summary: String, image: Data, isFavorite: Bool, ratingText: String? = nil, context: NSManagedObjectContext) {
+        let entity = NSEntityDescription.entity(forEntityName: "Restaurant", in: context)!
+        self.init(entity: entity, insertInto: context)
+        self.name = name
+        self.type = type
+        self.location = location
+        self.phone = phone
+        self.summary = summary
+        self.image = image
+        self.isFavorite = isFavorite
+        self.ratingText = ratingText
+        
+    }
     
 }
 

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
+    @Environment(\.managedObjectContext) var context
     @State private var selectedTabIndex = 0
     var body: some View {
         
@@ -18,7 +19,7 @@ struct MainView: View {
                 }
                 .tag(0)
 
-            DiscoverView()
+            DiscoverView(context: _context)
                 .tabItem {
                     Label("Discover", systemImage: "wand.and.rays")
                 }
