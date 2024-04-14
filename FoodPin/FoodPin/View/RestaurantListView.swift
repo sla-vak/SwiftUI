@@ -83,7 +83,7 @@ struct RestaurantListView: View {
         .sheet(isPresented: $showWalkthrough) {
             TutorialView()
         }
-        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search restaurants...")
+        .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .automatic), prompt: "Search restaurants...")
         
         .onChange(of: searchText) { searchText in
             let predicate = searchText.isEmpty ? NSPredicate(value: true) : NSPredicate(format: "name CONTAINS[c] %@ OR location CONTAINS[c] %@", searchText, searchText)
@@ -257,16 +257,16 @@ struct RestaurantListView_Previews: PreviewProvider {
     static var previews: some View {
         RestaurantListView()
             .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-
-        RestaurantListView()
-            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-            .preferredColorScheme(.dark)
-
-        BasicTextImageRow(restaurant: (PersistenceController.testData?.first)!)
-            .previewLayout(.sizeThatFits)
-//
-//        FullImageRow(imageName: "cafedeadend", name: "Cafe Deadend", type: "Cafe", location: "Hong Kong", isFavorite: .constant(true))
-//            .previewLayout(.sizeThatFits)
+        
+        //        RestaurantListView()
+        //            .environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        //            .preferredColorScheme(.dark)
+        //
+        //        BasicTextImageRow(restaurant: (PersistenceController.testData?.first)!)
+        //            .previewLayout(.sizeThatFits)
+        //
+        //        FullImageRow(imageName: "cafedeadend", name: "Cafe Deadend", type: "Cafe", location: "Hong Kong", isFavorite: .constant(true))
+        //            .previewLayout(.sizeThatFits)
         
     }
 }

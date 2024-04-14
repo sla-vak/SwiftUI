@@ -106,6 +106,7 @@ struct RestaurantDetailView: View {
                         dismiss()
                     }) {
                         Text("\(Image(systemName: "chevron.left"))")
+                            .fontWeight(.black)
                     }
                     .opacity(showReview ? 0 : 1)
                 }

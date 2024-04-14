@@ -64,47 +64,46 @@ struct DiscoverView: View {
             List {
                 ForEach(discoverRestaurants.indices, id: \.self) { index in
                     ZStack(alignment: .leading) {
-                        NavigationLink(destination: RestaurantDetailView(restaurant: discoverRestaurants[index])) {
-                            EmptyView()
+                        NavigationLink("Detail view") {
+                            RestaurantDetailView(restaurant: discoverRestaurants[index])
                         }
                         .opacity(0)
                         
                         BasicTextImageRow(restaurant: discoverRestaurants[index])
                     }
-                    .swipeActions(edge: .leading, allowsFullSwipe: false, content: {
-                        
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "heart")
-                        }
-                        .tint(.green)
-                        
-                        Button {
-                            
-                        } label: {
-                            Image(systemName: "square.and.arrow.up")
-                        }
-                        .tint(.orange)
-                        
-                    })
                 }
-                
                 .listRowSeparator(.hidden)
-                
-                .listStyle(.plain)
-                .navigationTitle("Discover")
-                .navigationBarTitleDisplayMode(.automatic)
-                .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .always), prompt: "Search restaurants...")
+                .swipeActions(edge: .leading, allowsFullSwipe: false, content: {
+                    
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "heart")
+                    }
+                    .tint(.green)
+                    
+                    Button {
+                        
+                    } label: {
+                        Image(systemName: "square.and.arrow.up")
+                    }
+                    .tint(.orange)
+                    
+                })
             }
-        }
-    }
-    
-    
-    
-    struct DiscoverView_Previews: PreviewProvider {
-        static var previews: some View {
-            DiscoverView()
+            .listStyle(.plain)
+            .navigationTitle("Discover")
+            .navigationBarTitleDisplayMode(.automatic)
+            .searchable(text: $searchText, placement: .navigationBarDrawer(displayMode: .automatic), prompt: "Search restaurants...")
         }
     }
 }
+
+
+
+struct DiscoverView_Previews: PreviewProvider {
+    static var previews: some View {
+        DiscoverView()
+    }
+}
+
