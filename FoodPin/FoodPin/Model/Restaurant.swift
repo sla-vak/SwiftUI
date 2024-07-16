@@ -17,8 +17,9 @@ public class Restaurant: NSManagedObject {
     @NSManaged public var image: Data
     @NSManaged public var isFavorite: Bool
     @NSManaged public var ratingText: String?
+    @NSManaged public var canCreate: Bool
 
-    convenience init(name: String, type: String, location: String, phone: String, summary: String, image: Data, isFavorite: Bool, ratingText: String? = nil, context: NSManagedObjectContext) {
+    convenience init(name: String, type: String, location: String, phone: String, summary: String, image: Data, isFavorite: Bool, ratingText: String? = nil, canCreate: Bool, context: NSManagedObjectContext) {
         let entity = NSEntityDescription.entity(forEntityName: "Restaurant", in: context)!
         self.init(entity: entity, insertInto: context)
         self.name = name
@@ -29,7 +30,7 @@ public class Restaurant: NSManagedObject {
         self.image = image
         self.isFavorite = isFavorite
         self.ratingText = ratingText
-        
+        self.canCreate = canCreate
     }
     
 }
